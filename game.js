@@ -29,6 +29,13 @@ function game() {
     // # movement
     px += xv;
     py += xy;
+    // # border detection 
+    if(px <= 0){
+        px = tc-1;
+    }
+    if(px >= tc){
+        px = 0;
+    }
     // # draw map and areas
     ctx.fillStyle = "black";
     ctx.fillRect(0,0,canvas.width, canvas.height);
