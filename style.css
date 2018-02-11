@@ -1,3 +1,9 @@
 #myCanv {
     border: 1px solid black;
 }
+
+#color {
+    width: 80px;
+    height: 30px;
+    border: 1px solid black;
+}
