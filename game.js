@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
     canvas = document.getElementById("myCanv");
     ctx = canvas.getContext("2d");
-    setInterval(game, 1000/10);
+    setInterval(game, 1000/5);
     document.addEventListener("keydown", pushKey);
     setTarget();
 });
@@ -21,11 +21,14 @@ redArea = 0+as;
 greenArea = gs-as;
 
 target = "";
-
 score = 0;
 
+xv=xy=0;
+
 function game() {
-    
+    // # movement
+    px += xv;
+    py += xy;
     // # draw map and areas
     ctx.fillStyle = "black";
     ctx.fillRect(0,0,canvas.width, canvas.height);
@@ -72,26 +75,19 @@ function pushKey(evt) {
     
     switch(evt.keyCode){
         case 37:
-            px -= 1;
+            xv=-1; xy=0;
             break;
         case 38:
-            
-            py -= 1;
+            xv=0; xy=-1;
             break;
         case 39:
-            px += 1;
+            xv=1; xy=0;
             break;
         case 40:
-            py += 1;
+            xv=0; xy=1;
             break;
     }
-    
-    if(px < 0){
-        px = tc-1;
-    }
-    if(px > tc-1){
-        px = 0;
-    }
+
     console.log("X: "+px+" Y: "+py);
 }
 
