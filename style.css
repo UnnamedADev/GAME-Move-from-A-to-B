@@ -7,3 +7,7 @@
     height: 30px;
     border: 1px solid black;
 }
+
+#score {
+    font-weight: bold;
+}

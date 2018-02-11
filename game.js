@@ -22,6 +22,8 @@ greenArea = gs-as;
 
 target = "";
 
+score = 0;
+
 function game() {
     
     // # draw map and areas
@@ -42,8 +44,10 @@ function game() {
     if(py <= redArea){
         if(target == "negative"){
             console.log("OK");
+            score++;
         }else{
             console.log("not OK");
+            score = 0;
         }
         px=py=9;
         setTarget();
@@ -51,12 +55,16 @@ function game() {
     if(py >= greenArea){
         if(target == "positive"){
             console.log("OK");
+            score++;
         }else{
             console.log("not OK");
+            score = 0;
         }
         px=py=9;
         setTarget();
     }
+    
+    document.getElementById("score").innerHTML = score;
     
 }
 
